@@ -7,7 +7,7 @@ import StatusOnList from './StatusOnList';
 const styles = StyleSheet.create({
   container: {
     width: '95%',
-    height: 72,
+    height: 92,
     marginTop: 8,
     backgroundColor: '#fff',
     borderColor: '#7E7E7E',
@@ -15,42 +15,38 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   leftContainer: {
-    width: '64%',
+    width: 92,
     height: '100%',
-    padding: 12,
-    justifyContent: 'space-between',
+    backgroundColor: 'red',
   },
   rightContainer: {
-    width: '36%',
+    flex: 1,
+    flexDirection: 'row',
+  },
+  leftInRightContainer: {
+    width: '80%',
     height: '100%',
-    paddingRight: 12,
-    alignItems: 'flex-end',
-    justifyContent: 'center',
+    backgroundColor: 'yellow',
   },
-  title: {
-    fontSize: 20,
-  },
-  date: {
-    color: '#969696',
+  rightInRightContainer: {
+    width: '20%',
+    height: '100%',
+    backgroundColor: 'blue',
   },
 });
 
-const EventListItem = (props) => {
+const ItemListItem = (props) => {
   const { onPress } = props;
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <View style={styles.leftContainer}>
-        <Text style={styles.title} numberOfLines={1}>
-          c97d1
-        </Text>
-        <Text style={styles.date}>2019/12/28</Text>
-      </View>
+      <View style={styles.leftContainer}></View>
       <View style={styles.rightContainer}>
-        <StatusOnList paid={1000} unpaid={4000} />
+        <View style={styles.leftInRightContainer}></View>
+        <View style={styles.rightInRightContainer}></View>
       </View>
     </TouchableOpacity>
   );
 };
 
-export default EventListItem;
+export default ItemListItem;

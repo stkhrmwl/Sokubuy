@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
 
 // components
-import HeaderA from '../components/HeaderA';
+import HeaderB from '../components/HeaderB';
 import Footer from '../components/Footer';
-import EventListItem from '../components/EventListItem';
+import CircleListItem from '../components/CircleListItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,24 +14,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen = (props) => {
+export default CircleListScreen = (props) => {
   const { navigation } = props;
   return (
     <Fragment>
       <SafeAreaView style={{ flex: 0, backgroundColor: '#fff' }} />
       <SafeAreaView style={styles.container}>
-        <HeaderA
-          iconA="bars"
-          iconB="history"
-          title="参加予定のイベント"
-          onPressA={() => {}}
-          onPressB={() => {
-            navigation.navigate('Past');
-          }}
-        />
-        <EventListItem
+        <HeaderB title="c97d1" subtitle="2019/12/28" navigation={navigation} />
+        <CircleListItem
           onPress={() => {
-            navigation.navigate('CircleList');
+            navigation.navigate('ItemList');
           }}
         />
       </SafeAreaView>

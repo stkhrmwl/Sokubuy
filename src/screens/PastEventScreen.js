@@ -14,19 +14,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen = (props) => {
+export default PastEventScreen = (props) => {
   const { navigation } = props;
   return (
     <Fragment>
       <SafeAreaView style={{ flex: 0, backgroundColor: '#fff' }} />
       <SafeAreaView style={styles.container}>
         <HeaderA
-          iconA="bars"
-          iconB="history"
-          title="参加予定のイベント"
-          onPressA={() => {}}
-          onPressB={() => {
-            navigation.navigate('Past');
+          iconA="chevron-left"
+          title="過去の参加イベント"
+          onPressA={() => {
+            navigation.goBack();
           }}
         />
         <EventListItem
@@ -35,7 +33,7 @@ export default HomeScreen = (props) => {
           }}
         />
       </SafeAreaView>
-      <Footer />
+      <Footer showPlusButton={false} showUnpaid={false} />
     </Fragment>
   );
 };

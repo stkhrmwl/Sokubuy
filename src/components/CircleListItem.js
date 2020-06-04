@@ -35,16 +35,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const EventListItem = (props) => {
+const CircleListItem = (props) => {
   const { onPress } = props;
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.leftContainer}>
         <Text style={styles.title} numberOfLines={1}>
-          c97d1
+          CPSLAB
         </Text>
-        <Text style={styles.date}>2019/12/28</Text>
+        <Text style={styles.date}>東A01b</Text>
       </View>
       <View style={styles.rightContainer}>
         <StatusOnList paid={1000} unpaid={4000} />
@@ -53,4 +53,4 @@ const EventListItem = (props) => {
   );
 };
 
-export default EventListItem;
+export default CircleListItem;
