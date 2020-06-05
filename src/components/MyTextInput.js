@@ -7,12 +7,10 @@ const styles = StyleSheet.create({
   container: {
     width: '90%',
     height: 40,
-    marginTop: 40,
   },
   title: {
     color: '#7E7E7E',
     fontSize: 16,
-    paddingBottom: 8,
   },
   input: {
     paddingLeft: 6,
