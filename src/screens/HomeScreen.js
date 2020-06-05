@@ -35,7 +35,11 @@ export default HomeScreen = (props) => {
           }}
         />
       </SafeAreaView>
-      <Footer />
+      <Footer
+        onPress={() => {
+          navigation.navigate('AddEvent');
+        }}
+      />
     </Fragment>
   );
 };

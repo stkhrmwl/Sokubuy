@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import PastEventScreen from '../screens/PastEventScreen';
 import CircleListScreen from '../screens/CircleListScreen';
 import ItemListScreen from '../screens/ItemListScreen';
+import AddEventScreen from '../screens/AddEventScreen';
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,13 @@ export default AppNavigator = () => {
         <Stack.Screen
           name="ItemList"
           component={ItemListScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="AddEvent"
+          component={AddEventScreen}
           options={{
             headerShown: false,
           }}

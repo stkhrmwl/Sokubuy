@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 });
 
 const Footer = (props) => {
-  const { showPlusButton, showUnpaid } = props;
+  const { showPlusButton, showUnpaid, onPress } = props;
 
   return (
     <View style={styles.container}>
@@ -46,7 +46,7 @@ const Footer = (props) => {
         <ItemStatusOnFooter showUnpaid={showUnpaid} />
       </View>
       <View style={styles.centerContainer}>
-        {showPlusButton && <PlusButton onPress={() => {}} />}
+        {showPlusButton && <PlusButton onPress={onPress} />}
       </View>
       <View style={styles.rightContainer}>
         <Text>支払金額</Text>
