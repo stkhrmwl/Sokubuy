@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 // components
-import StatusOnList from './StatusOnList';
+import OrderOnListItem from './OrderOnListItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +18,10 @@ const styles = StyleSheet.create({
   leftContainer: {
     width: 92,
     height: '100%',
-    backgroundColor: 'red',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
   rightContainer: {
     flex: 1,
@@ -26,12 +30,17 @@ const styles = StyleSheet.create({
   leftInRightContainer: {
     width: '80%',
     height: '100%',
-    backgroundColor: 'yellow',
+    justifyContent: 'space-between',
+    padding: 12,
+  },
+  title: {
+    fontSize: 16,
   },
   rightInRightContainer: {
     width: '20%',
     height: '100%',
-    backgroundColor: 'blue',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
@@ -40,10 +49,20 @@ const ItemListItem = (props) => {
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <View style={styles.leftContainer}></View>
+      <View style={styles.leftContainer}>
+        <Image
+          style={styles.image}
+          source={{ uri: 'https://picsum.photos/id/14/200/200' }}
+        />
+      </View>
       <View style={styles.rightContainer}>
-        <View style={styles.leftInRightContainer}></View>
-        <View style={styles.rightInRightContainer}></View>
+        <View style={styles.leftInRightContainer}>
+          <Text style={styles.title}>イラストまとめ本</Text>
+          <OrderOnListItem />
+        </View>
+        <TouchableOpacity style={styles.rightInRightContainer}>
+          <FontAwesome name={'check-square'} size={28} color="#7E7E7E" />
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );

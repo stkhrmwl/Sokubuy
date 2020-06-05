@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const StatusOnList = (props) => {
+const StatusOnListItem = (props) => {
   const { paid, unpaid } = props;
 
   return (
@@ -26,9 +26,9 @@ const StatusOnList = (props) => {
   );
 };
 
-StatusOnList.defaultProps = {
+StatusOnListItem.defaultProps = {
   paid: 0,
   unpaid: 0,
 };
 
-export default StatusOnList;
+export default StatusOnListItem;

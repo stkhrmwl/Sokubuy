@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 // components
-import StatusOnList from './StatusOnList';
+import StatusOnListItem from './StatusOnListItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -47,7 +47,7 @@ const CircleListItem = (props) => {
         <Text style={styles.date}>東A01b</Text>
       </View>
       <View style={styles.rightContainer}>
-        <StatusOnList paid={1000} unpaid={4000} />
+        <StatusOnListItem paid={1000} unpaid={4000} />
       </View>
     </TouchableOpacity>
   );
