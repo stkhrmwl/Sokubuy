@@ -30,7 +30,11 @@ export default ItemListScreen = (props) => {
         />
         <ItemListItem />
       </SafeAreaView>
-      <Footer />
+      <Footer
+        onPress={() => {
+          navigation.navigate('AddItem');
+        }}
+      />
     </Fragment>
   );
 };

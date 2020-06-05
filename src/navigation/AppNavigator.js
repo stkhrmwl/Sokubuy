@@ -11,6 +11,7 @@ import AddEventScreen from '../screens/AddEventScreen';
 import EditEventScreen from '../screens/EditEventScreen';
 import AddCircleScreen from '../screens/AddCircleScreen';
 import EditCircleScreen from '../screens/EditCircleScreen';
+import AddItemScreen from '../screens/AddItemScreen';
 
 const Stack = createStackNavigator();
 
@@ -70,6 +71,13 @@ export default AppNavigator = () => {
         <Stack.Screen
           name="EditCircle"
           component={EditCircleScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="AddItem"
+          component={AddItemScreen}
           options={{
             headerShown: false,
           }}
