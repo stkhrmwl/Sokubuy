@@ -20,14 +20,25 @@ export default CircleListScreen = (props) => {
     <Fragment>
       <SafeAreaView style={{ flex: 0, backgroundColor: '#fff' }} />
       <SafeAreaView style={styles.container}>
-        <HeaderB title="c97d1" subtitle="2019/12/28" navigation={navigation} />
+        <HeaderB
+          title="c97d1"
+          subtitle="2019/12/28"
+          navigation={navigation}
+          onPressEdit={() => {
+            navigation.navigate('EditEvent');
+          }}
+        />
         <CircleListItem
           onPress={() => {
             navigation.navigate('ItemList');
           }}
         />
       </SafeAreaView>
-      <Footer />
+      <Footer
+        onPress={() => {
+          navigation.navigate('AddCircle');
+        }}
+      />
     </Fragment>
   );
 };

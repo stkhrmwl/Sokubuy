@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 });
 
 const HeaderB = (props) => {
-  const { title, subtitle, navigation } = props;
+  const { title, subtitle, navigation, onPressLink, onPressEdit } = props;
 
   return (
     <View style={styles.container}>
@@ -55,12 +55,12 @@ const HeaderB = (props) => {
         <Text style={styles.subtitle}>{subtitle}</Text>
       </View>
       <View style={styles.leftContainer}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={onPressLink}>
           <FontAwesome name={'link'} size={28} color="#7E7E7E" />
         </TouchableOpacity>
       </View>
       <View style={styles.leftContainer}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={onPressEdit}>
           <FontAwesome name={'pencil'} size={28} color="#7E7E7E" />
         </TouchableOpacity>
       </View>

@@ -20,7 +20,14 @@ export default ItemListScreen = (props) => {
     <Fragment>
       <SafeAreaView style={{ flex: 0, backgroundColor: '#fff' }} />
       <SafeAreaView style={styles.container}>
-        <HeaderB title="CPSLAB" subtitle="東A01b" navigation={navigation} />
+        <HeaderB
+          title="CPSLAB"
+          subtitle="東A01b"
+          navigation={navigation}
+          onPressEdit={() => {
+            navigation.navigate('EditCircle');
+          }}
+        />
         <ItemListItem />
       </SafeAreaView>
       <Footer />
