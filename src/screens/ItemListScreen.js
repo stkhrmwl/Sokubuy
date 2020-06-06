@@ -28,7 +28,11 @@ export default ItemListScreen = (props) => {
             navigation.navigate('EditCircle');
           }}
         />
-        <ItemListItem />
+        <ItemListItem
+          onPress={() => {
+            navigation.navigate('EditItem');
+          }}
+        />
       </SafeAreaView>
       <Footer
         onPress={() => {

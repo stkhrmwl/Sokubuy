@@ -4,7 +4,7 @@ import { StyleSheet, SafeAreaView, View } from 'react-native';
 // components
 import HeaderA from '../components/HeaderA';
 import MyTextInput from '../components/MyTextInput';
-import MyDatePicker from '../components/MyDatePicker';
+import MyImagePicker from '../components/MyImagePicker';
 import MyBoxButton from '../components/MyBoxButton';
 
 const styles = StyleSheet.create({
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddEventScreen = (props) => {
+export default EditItemScreen = (props) => {
   const { navigation } = props;
   return (
     <Fragment>
@@ -27,17 +27,19 @@ export default AddEventScreen = (props) => {
       <SafeAreaView style={styles.container}>
         <HeaderA
           iconA="chevron-left"
-          title="イベントを追加する"
+          title="アイテムを編集する"
           onPressA={() => {
             navigation.goBack();
           }}
         />
         <View style={{ marginTop: 24 }} />
-        <MyTextInput title="イベント名" />
+        <MyTextInput title="アイテム名" />
         <View style={{ marginTop: 24 }} />
-        <MyDatePicker />
+        <MyTextInput title="単価" />
         <View style={{ marginTop: 24 }} />
-        <MyTextInput title="URL (Optional)" />
+        <MyTextInput title="数量" />
+        <View style={{ marginTop: 24 }} />
+        <MyImagePicker />
         <View style={{ marginTop: 40 }} />
         <View style={styles.boxContainer}>
           <MyBoxButton
@@ -48,6 +50,12 @@ export default AddEventScreen = (props) => {
           />
           <MyBoxButton
             title="キャンセル"
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
+          <MyBoxButton
+            title="削除"
             onPress={() => {
               navigation.goBack();
             }}

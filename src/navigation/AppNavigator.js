@@ -12,6 +12,7 @@ import EditEventScreen from '../screens/EditEventScreen';
 import AddCircleScreen from '../screens/AddCircleScreen';
 import EditCircleScreen from '../screens/EditCircleScreen';
 import AddItemScreen from '../screens/AddItemScreen';
+import EditItemScreen from '../screens/EditItemScreen';
 
 const Stack = createStackNavigator();
 
@@ -78,6 +79,13 @@ export default AppNavigator = () => {
         <Stack.Screen
           name="AddItem"
           component={AddItemScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="EditItem"
+          component={EditItemScreen}
           options={{
             headerShown: false,
           }}

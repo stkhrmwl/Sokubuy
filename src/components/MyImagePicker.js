@@ -4,14 +4,23 @@ import * as ImagePicker from 'expo-image-picker';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: '90%',
+  },
+  title: {
+    color: '#7E7E7E',
+    fontSize: 16,
+  },
+  imageContainer: {
+    width: 240,
+    height: 240,
+    backgroundColor: '#BFBFBF',
+    borderRadius: 6,
   },
   thumbnail: {
     width: 240,
     height: 240,
-    resizeMode: 'contain',
+    borderRadius: 6,
+    resizeMode: 'cover',
   },
 });
 
@@ -38,20 +47,28 @@ const MyImagePicker = () => {
 
   if (selectedImage !== null) {
     return (
-      <TouchableOpacity style={styles.container} onPress={openImagePickerAsync}>
-        <Image
-          source={{ uri: selectedImage.localUri }}
-          style={styles.thumbnail}
-        />
-      </TouchableOpacity>
+      <View style={styles.container}>
+        <Text style={styles.title}>参考画像</Text>
+        <TouchableOpacity
+          style={styles.imageContainer}
+          onPress={openImagePickerAsync}
+        >
+          <Image
+            source={{ uri: selectedImage.localUri }}
+            style={styles.thumbnail}
+          />
+        </TouchableOpacity>
+      </View>
     );
   }
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
-        <Text style={styles.buttonText}>Pick a photo</Text>
-      </TouchableOpacity>
+      <Text style={styles.title}>参考画像</Text>
+      <TouchableOpacity
+        style={styles.imageContainer}
+        onPress={openImagePickerAsync}
+      ></TouchableOpacity>
     </View>
   );
 };
