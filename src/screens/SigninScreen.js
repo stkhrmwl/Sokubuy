@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, TouchableOpacity, Text } from 'react-native';
 
-// components
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
