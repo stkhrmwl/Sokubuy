@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // screens
+import SigninScreen from '../screens/SigninScreen';
 import HomeScreen from '../screens/HomeScreen';
 import PastEventScreen from '../screens/PastEventScreen';
 import CircleListScreen from '../screens/CircleListScreen';
@@ -20,6 +21,13 @@ export default AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="Signin"
+          component={SigninScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen
           name="Home"
           component={HomeScreen}
