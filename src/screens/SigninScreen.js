@@ -22,7 +22,7 @@ export default HomeScreen = (props) => {
     onSuccess: (user, accessToken) => {
       console.log(user);
       console.log(accessToken);
-      navigation.navigate('Home');
+      navigation.navigate('Home', { user: user });
     },
   });
 

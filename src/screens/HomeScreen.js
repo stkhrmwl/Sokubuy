@@ -18,9 +18,12 @@ const styles = StyleSheet.create({
 export default HomeScreen = (props) => {
   // navigation.navigate('AddEvent');
 
+  const { navigation, route } = props;
+  const { user } = route.params;
+
   const handlePress = () => {
     const db = firebase.firestore();
-    db.collection('events')
+    db.collection(`users/${user.id}/events`)
       .add({
         title: 'test event',
         date: '2019-12-28',
@@ -33,7 +36,6 @@ export default HomeScreen = (props) => {
       });
   };
 
-  const { navigation } = props;
   return (
     <Fragment>
       <SafeAreaView style={{ flex: 0, backgroundColor: '#fff' }} />
