@@ -20,7 +20,6 @@ export default HomeScreen = (props) => {
 
   const { navigation, route } = props;
   const { user } = route.params;
-
   const handlePress = () => {
     const db = firebase.firestore();
     db.collection(`users/${user.id}/events`)
