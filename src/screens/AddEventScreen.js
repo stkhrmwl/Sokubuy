@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { StyleSheet, SafeAreaView, View } from 'react-native';
+import firebase from 'firebase';
 
 // components
 import HeaderA from '../components/HeaderA';
@@ -20,7 +21,42 @@ const styles = StyleSheet.create({
 });
 
 export default AddEventScreen = (props) => {
-  const { navigation } = props;
+  const { navigation, route } = props;
+  const { user } = route.params;
+
+  const [title, setTitle] = useState('');
+  const [date, setDate] = useState(null);
+  const [url, setUrl] = useState('');
+
+  const getTitle = (cb) => {
+    setTitle(cb);
+  };
+
+  const getDate = (cb) => {
+    setDate(cb);
+  };
+
+  const getUrl = (cb) => {
+    setUrl(cb);
+  };
+
+  const handlePress = () => {
+    const db = firebase.firestore();
+    db.collection(`users/${user.id}/events`)
+      .add({
+        title: title,
+        date: date,
+        url: url,
+      })
+      .then((docRef) => {
+        console.log(docRef.id);
+        navigation.goBack();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Fragment>
       <SafeAreaView style={{ flex: 0, backgroundColor: '#fff' }} />
@@ -33,19 +69,14 @@ export default AddEventScreen = (props) => {
           }}
         />
         <View style={{ marginTop: 24 }} />
-        <MyTextInput title="イベント名" />
+        <MyTextInput title="イベント名" callback={getTitle} />
         <View style={{ marginTop: 24 }} />
-        <MyDatePicker />
+        <MyDatePicker callback={getDate} />
         <View style={{ marginTop: 24 }} />
-        <MyTextInput title="URL (Optional)" />
+        <MyTextInput title="URL (Optional)" callback={getUrl} />
         <View style={{ marginTop: 40 }} />
         <View style={styles.boxContainer}>
-          <MyBoxButton
-            title="追加"
-            onPress={() => {
-              navigation.goBack();
-            }}
-          />
+          <MyBoxButton title="追加" onPress={handlePress} />
           <MyBoxButton
             title="キャンセル"
             onPress={() => {

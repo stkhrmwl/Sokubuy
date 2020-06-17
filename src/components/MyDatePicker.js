@@ -24,7 +24,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const MyDatePicker = () => {
+const MyDatePicker = (props) => {
+  const { callback } = props;
+
   const [isDatePickerVisible, setDatePickerBisibility] = useState(false);
   const [date, setDate] = useState(null);
 
@@ -42,6 +44,7 @@ const MyDatePicker = () => {
     const d = date.getDate();
     const str = y + '/' + m + '/' + d;
     setDate(str);
+    callback(date);
     hideDatePicker();
   };
 

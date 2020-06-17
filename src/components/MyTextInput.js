@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
 
 // components
@@ -23,7 +23,13 @@ const styles = StyleSheet.create({
 });
 
 const MyTextInput = (props) => {
-  const { title } = props;
+  const { title, callback } = props;
+  const [body, setBody] = useState('');
+
+  const handleSubmit = (body) => {
+    setBody(body);
+    callback(body);
+  };
 
   return (
     <View style={styles.container}>
@@ -32,7 +38,9 @@ const MyTextInput = (props) => {
         style={styles.input}
         autoCapitalize="none"
         autoCorrect={false}
-        maxLength={4}
+        maxLength={30}
+        value={body}
+        onChangeText={handleSubmit}
       />
     </View>
   );

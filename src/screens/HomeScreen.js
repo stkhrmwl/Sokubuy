@@ -20,7 +20,10 @@ export default HomeScreen = (props) => {
 
   const { navigation, route } = props;
   const { user } = route.params;
+
   const handlePress = () => {
+    navigation.navigate('AddEvent', { user: user });
+    /*
     const db = firebase.firestore();
     db.collection(`users/${user.id}/events`)
       .add({
@@ -33,6 +36,7 @@ export default HomeScreen = (props) => {
       .catch((error) => {
         console.log(error);
       });
+      */
   };
 
   return (
