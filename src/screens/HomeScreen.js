@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
-
-// firebase
 import firebase from 'firebase';
 
 // components
@@ -21,7 +19,18 @@ export default HomeScreen = (props) => {
   // navigation.navigate('AddEvent');
 
   const handlePress = () => {
-    firebase.firestore();
+    const db = firebase.firestore();
+    db.collection('events')
+      .add({
+        title: 'test event',
+        date: '2019-12-28',
+      })
+      .then((docRef) => {
+        console.log(docRef.id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const { navigation } = props;

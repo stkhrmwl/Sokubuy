@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, SafeAreaView, TouchableOpacity, Text } from 'react-native';
 import { useTwitter } from 'react-native-simple-twitter';
 import firebase from 'firebase';
+import 'firebase/firestore';
 
 // authkeys
 import ENV from '../../env.json';
