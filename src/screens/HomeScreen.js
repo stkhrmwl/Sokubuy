@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
 
+// firebase
+import firebase from 'firebase';
+
 // components
 import HeaderA from '../components/HeaderA';
 import Footer from '../components/Footer';
@@ -15,6 +18,12 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen = (props) => {
+  // navigation.navigate('AddEvent');
+
+  const handlePress = () => {
+    firebase.firestore();
+  };
+
   const { navigation } = props;
   return (
     <Fragment>
@@ -35,11 +44,7 @@ export default HomeScreen = (props) => {
           }}
         />
       </SafeAreaView>
-      <Footer
-        onPress={() => {
-          navigation.navigate('AddEvent');
-        }}
-      />
+      <Footer onPress={handlePress} />
     </Fragment>
   );
 };
