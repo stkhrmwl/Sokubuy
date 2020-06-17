@@ -44,7 +44,7 @@ const MyDatePicker = (props) => {
     const d = date.getDate();
     const str = y + '/' + m + '/' + d;
     setDate(str);
-    callback(date);
+    callback(str);
     hideDatePicker();
   };
 

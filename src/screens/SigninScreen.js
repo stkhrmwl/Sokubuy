@@ -20,8 +20,8 @@ export default HomeScreen = (props) => {
 
   const { twitter, TWModal } = useTwitter({
     onSuccess: (user, accessToken) => {
-      console.log(user);
-      console.log(accessToken);
+      // console.log(user);
+      // console.log(accessToken);
       navigation.navigate('Home', { user: user });
     },
   });

@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import React, { Fragment, useState, useEffect } from 'react';
+import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
 import firebase from 'firebase';
 
 // components
@@ -16,27 +16,29 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen = (props) => {
-  // navigation.navigate('AddEvent');
-
   const { navigation, route } = props;
   const { user } = route.params;
 
+  const [loading, setLoading] = useState(true); // Set loading to true on component mount
+  const [events, setEvents] = useState([]); // Initial empty array of users
+
+  useEffect(() => {
+    const db = firebase.firestore();
+    db.collection(`users/${user.id}/events`).onSnapshot((querySnapshot) => {
+      const eventList = [];
+      querySnapshot.forEach((documentSnapshot) => {
+        eventList.push({
+          ...documentSnapshot.data(),
+          key: documentSnapshot.id,
+        });
+      });
+      setEvents(eventList);
+      setLoading(false);
+    });
+  }, []);
+
   const handlePress = () => {
     navigation.navigate('AddEvent', { user: user });
-    /*
-    const db = firebase.firestore();
-    db.collection(`users/${user.id}/events`)
-      .add({
-        title: 'test event',
-        date: '2019-12-28',
-      })
-      .then((docRef) => {
-        console.log(docRef.id);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      */
   };
 
   return (
@@ -52,10 +54,17 @@ export default HomeScreen = (props) => {
             navigation.navigate('Past');
           }}
         />
-        <EventListItem
-          onPress={() => {
-            navigation.navigate('CircleList');
-          }}
+        <FlatList
+          data={events}
+          renderItem={({ item }) => (
+            <EventListItem
+              title={item.title}
+              date={item.date}
+              onPress={() => {
+                navigation.navigate('CircleList');
+              }}
+            />
+          )}
         />
       </SafeAreaView>
       <Footer onPress={handlePress} />

@@ -6,13 +6,14 @@ import StatusOnListItem from './StatusOnListItem';
 
 const styles = StyleSheet.create({
   container: {
-    width: '95%',
+    width: '96%',
     height: 72,
     marginTop: 8,
     backgroundColor: '#fff',
     borderColor: '#7E7E7E',
     borderBottomWidth: 0.5,
     flexDirection: 'row',
+    alignSelf: 'center',
   },
   leftContainer: {
     width: '64%',
@@ -36,15 +37,15 @@ const styles = StyleSheet.create({
 });
 
 const EventListItem = (props) => {
-  const { onPress } = props;
+  const { title, date, url, onPress } = props;
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.leftContainer}>
         <Text style={styles.title} numberOfLines={1}>
-          c97d1
+          {title}
         </Text>
-        <Text style={styles.date}>2019/12/28</Text>
+        <Text style={styles.date}>{date}</Text>
       </View>
       <View style={styles.rightContainer}>
         <StatusOnListItem paid={1000} unpaid={4000} />

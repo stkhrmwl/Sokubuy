@@ -25,7 +25,7 @@ export default AddEventScreen = (props) => {
   const { user } = route.params;
 
   const [title, setTitle] = useState('');
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState('');
   const [url, setUrl] = useState('');
 
   const getTitle = (cb) => {
