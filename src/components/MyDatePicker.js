@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
 });
 
 const MyDatePicker = (props) => {
-  const { callback } = props;
+  const { fbody, callback } = props;
 
   const [isDatePickerVisible, setDatePickerBisibility] = useState(false);
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState(fbody);
 
   const showDatePicker = () => {
     setDatePickerBisibility(true);

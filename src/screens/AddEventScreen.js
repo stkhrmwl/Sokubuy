@@ -26,7 +26,6 @@ export default AddEventScreen = (props) => {
 
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
-  const [url, setUrl] = useState('');
 
   const getTitle = (cb) => {
     setTitle(cb);
@@ -34,10 +33,6 @@ export default AddEventScreen = (props) => {
 
   const getDate = (cb) => {
     setDate(cb);
-  };
-
-  const getUrl = (cb) => {
-    setUrl(cb);
   };
 
   const handlePress = () => {

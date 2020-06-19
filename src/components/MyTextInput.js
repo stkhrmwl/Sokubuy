@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
 });
 
 const MyTextInput = (props) => {
-  const { title, callback } = props;
-  const [body, setBody] = useState('');
+  const { title, fbody, callback } = props;
+  const [body, setBody] = useState(fbody);
 
   const handleSubmit = (body) => {
     setBody(body);

@@ -19,9 +19,6 @@ export default CircleListScreen = (props) => {
   const { navigation, route } = props;
   const { user, event } = route.params;
 
-  console.log(event.url);
-  const handlePressLink = () => {};
-
   return (
     <Fragment>
       <SafeAreaView style={{ flex: 0, backgroundColor: '#fff' }} />
@@ -31,7 +28,7 @@ export default CircleListScreen = (props) => {
           subtitle={event.date}
           navigation={navigation}
           onPressEdit={() => {
-            navigation.navigate('EditEvent');
+            navigation.navigate('EditEvent', { user: user, event: event });
           }}
         />
         <CircleListItem
