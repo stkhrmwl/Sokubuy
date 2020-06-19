@@ -36,8 +36,6 @@ export default EditEventScreen = (props) => {
         <MyTextInput title="イベント名" />
         <View style={{ marginTop: 24 }} />
         <MyDatePicker />
-        <View style={{ marginTop: 24 }} />
-        <MyTextInput title="URL (Optional)" />
         <View style={{ marginTop: 40 }} />
         <View style={styles.boxContainer}>
           <MyBoxButton

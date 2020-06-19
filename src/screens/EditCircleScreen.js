@@ -35,8 +35,6 @@ export default EditCircleScreen = (props) => {
         <MyTextInput title="サークル名" />
         <View style={{ marginTop: 24 }} />
         <MyTextInput title="スペース" />
-        <View style={{ marginTop: 24 }} />
-        <MyTextInput title="URL (Optional)" />
         <View style={{ marginTop: 40 }} />
         <View style={styles.boxContainer}>
           <MyBoxButton

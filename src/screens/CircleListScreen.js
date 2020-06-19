@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
+import { WebView } from 'react-native-webview';
 
 // components
 import HeaderB from '../components/HeaderB';
@@ -15,14 +16,19 @@ const styles = StyleSheet.create({
 });
 
 export default CircleListScreen = (props) => {
-  const { navigation } = props;
+  const { navigation, route } = props;
+  const { user, event } = route.params;
+
+  console.log(event.url);
+  const handlePressLink = () => {};
+
   return (
     <Fragment>
       <SafeAreaView style={{ flex: 0, backgroundColor: '#fff' }} />
       <SafeAreaView style={styles.container}>
         <HeaderB
-          title="c97d1"
-          subtitle="2019/12/28"
+          title={event.title}
+          subtitle={event.date}
           navigation={navigation}
           onPressEdit={() => {
             navigation.navigate('EditEvent');
@@ -33,6 +39,7 @@ export default CircleListScreen = (props) => {
             navigation.navigate('ItemList');
           }}
         />
+        <WebView source={event.url} />
       </SafeAreaView>
       <Footer
         onPress={() => {

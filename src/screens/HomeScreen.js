@@ -61,7 +61,7 @@ export default HomeScreen = (props) => {
               title={item.title}
               date={item.date}
               onPress={() => {
-                navigation.navigate('CircleList');
+                navigation.navigate('CircleList', { user: user, event: item });
               }}
             />
           )}

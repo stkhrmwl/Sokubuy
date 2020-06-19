@@ -55,9 +55,9 @@ const HeaderB = (props) => {
         <Text style={styles.subtitle}>{subtitle}</Text>
       </View>
       <View style={styles.leftContainer}>
-        <TouchableOpacity onPress={onPressLink}>
+        {/*<TouchableOpacity onPress={onPressLink}>
           <FontAwesome name={'link'} size={28} color="#7E7E7E" />
-        </TouchableOpacity>
+        </TouchableOpacity>*/}
       </View>
       <View style={styles.leftContainer}>
         <TouchableOpacity onPress={onPressEdit}>

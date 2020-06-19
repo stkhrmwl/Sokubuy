@@ -46,7 +46,6 @@ export default AddEventScreen = (props) => {
       .add({
         title: title,
         date: date,
-        url: url,
       })
       .then((docRef) => {
         console.log(docRef.id);
@@ -72,8 +71,6 @@ export default AddEventScreen = (props) => {
         <MyTextInput title="イベント名" callback={getTitle} />
         <View style={{ marginTop: 24 }} />
         <MyDatePicker callback={getDate} />
-        <View style={{ marginTop: 24 }} />
-        <MyTextInput title="URL (Optional)" callback={getUrl} />
         <View style={{ marginTop: 40 }} />
         <View style={styles.boxContainer}>
           <MyBoxButton title="追加" onPress={handlePress} />
